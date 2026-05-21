@@ -1,5 +1,8 @@
 import os
-import ollama
+from dotenv import load_dotenv, find_dotenv
+load_dotenv(find_dotenv())
+
+from google import genai
 import chromadb
 
 
@@ -10,6 +13,8 @@ class RAGManager:
 
     def __init__(self):
 
+        self.client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+        
         base_dir = os.path.dirname(__file__)
 
         self.chroma_client = chromadb.PersistentClient(
@@ -26,12 +31,12 @@ class RAGManager:
 
     def generar_embedding(self, texto):
 
-        response = ollama.embed(
-            model="nomic-embed-text",
-            input=texto
+        response = self.client.models.embed_content(
+            model="gemini-embedding-2",
+            contents=texto
         )
 
-        return response["embeddings"][0]
+        return response.embeddings[0].values
 
     def indexar_documento(self, ruta_txt):
 

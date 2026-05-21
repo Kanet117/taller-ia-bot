@@ -1,6 +1,9 @@
 from google.genai import types
 
-with open('/home/kanet/escuela/taller/bot_2/inauguracion.jpg', 'rb') as f:
+import os
+
+image_path = os.path.join(os.path.dirname(__file__), 'inauguracion.jpg')
+with open(image_path, 'rb') as f:
       image_bytes = f.read()
 
 historial = []

@@ -1,13 +1,13 @@
 from fastapi import FastAPI, File, UploadFile, Form
 from fastapi.middleware.cors import CORSMiddleware
 from typing import Optional, List
-from dotenv import load_dotenv
+from dotenv import load_dotenv, find_dotenv
 import os
 import uvicorn
 from ia import generar_respuesta_fastapi
 from fastapi.responses import JSONResponse
 
-load_dotenv()
+load_dotenv(find_dotenv())
 
 app = FastAPI()
 

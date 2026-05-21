@@ -1,10 +1,10 @@
 from google import genai
-from dotenv import load_dotenv
+from dotenv import load_dotenv, find_dotenv
 import os
-from bot_2.ia import generar_respuesta
-import bot_2.historial as historial
+from ia import generar_respuesta
+import historial as historial
 
-load_dotenv()
+load_dotenv(find_dotenv())
 
 client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 

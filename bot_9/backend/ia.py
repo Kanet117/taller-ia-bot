@@ -86,7 +86,7 @@ async def generar_respuesta_fastapi(text: str = None, files: list = None, voice:
     chat_history = valid_history
 
     chat = client.aio.chats.create(
-        model='gemini-2.5-flash',
+        model='gemini-3-flash-preview',
         history=chat_history,
         config=types.GenerateContentConfig(
             system_instruction=SYSTEM_PROMPT,

@@ -1,7 +1,7 @@
 from google import genai
 from google.genai import types
 from dotenv import load_dotenv
-from bot_2.correo import enviar_correo
+from correo import enviar_correo
 import os
 
 load_dotenv()

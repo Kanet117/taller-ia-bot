@@ -5,6 +5,9 @@ from typing import Optional
 import io
 import base64
 from gtts import gTTS
+from dotenv import load_dotenv, find_dotenv
+
+load_dotenv(find_dotenv())
 
 import ia as bot          # Para usar generar_respuesta_api
 import historial as memoria # Para usar añadir_mensaje y el historial

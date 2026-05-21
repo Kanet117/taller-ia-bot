@@ -10,7 +10,7 @@ client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"), http_options={'api_ve
 async def test():
     try:
         response = await client.aio.models.generate_content(
-            model='gemini-2.0-flash',
+            model='gemini-3-flash-preview',
             contents="Say hello in audio",
             config=types.GenerateContentConfig(
                 response_modalities=["AUDIO"],
@@ -23,8 +23,8 @@ async def test():
                 )
             )
         )
-        print("SUCCESS gemini-2.0-flash v1alpha")
+        print("SUCCESS gemini-3-flash-preview v1alpha")
     except Exception as e:
-        print("ERROR gemini-2.0-flash v1alpha:", e)
+        print("ERROR gemini-3-flash-preview v1alpha:", e)
 
 asyncio.run(test())
