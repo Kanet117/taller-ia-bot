@@ -18,7 +18,7 @@ app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"], 
-    allow_credentials=True,
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -28,7 +28,7 @@ class MensajeUsuario(BaseModel):
     imagen: Optional[str] = None
 
 @app.post("/chat")
-async def chat(data: MensajeUsuario):
+def chat(data: MensajeUsuario):
     try:
         if data.texto.lower() == "restart":
             memoria.limpiar_historial()
