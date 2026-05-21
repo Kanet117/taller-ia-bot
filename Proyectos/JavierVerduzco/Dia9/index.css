@@ -1,0 +1,13 @@
+body {
+    background-color: blue;
+}
+
+h1 {
+    background-color: brown;
+    color: aquamarine;
+    text-align: center;
+    padding: 30px;
+    border: 30px solid blueviolet;
+    border-radius: 10px;
+    
+}
